@@ -4,7 +4,7 @@ import Masonry from 'react-masonry-css';
 import SectionName from "./SectionName";
 
 export default function ImageGallery({ images }: { images: { src: string, width: number, height: number }[] }) {
-    // console.log(images);
+    console.log(images);
     return (
         <div className="container px-5 sm:px-48 sm:mx-auto">
             <SectionName name="Image Gallery" side="right" />
