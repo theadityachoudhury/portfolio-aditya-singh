@@ -5,11 +5,12 @@ import sizeOf from 'image-size';
 import Navbar from "@/components/Navbar";
 import AboutMe from "@/components/AboutMe";
 
-export default function Home() {
+export default async function Home() {
   let images: { src: string, width: number, height: number }[] = [];
   const imagesFolderPath = path.join(process.cwd(), 'public', 'images');
 
-  function listImagesInFolder(folderPath: string): { src: string, width: number, height: number }[] {
+  async function listImagesInFolder(folderPath: string): Promise<{ src: string, width: number, height: number }[]>{
+    "use server";
     let allImages: { src: string, width: number, height: number }[] = [];
 
     try {
@@ -37,7 +38,7 @@ export default function Home() {
 
     return allImages;
   }
-  images = listImagesInFolder(imagesFolderPath);
+  images = await listImagesInFolder(imagesFolderPath);
 
   return (
     <div className="">
